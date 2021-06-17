@@ -8,5 +8,5 @@ The main folder contains the most important scripts and function used in the pap
 - the script script_DCASCADEBega_futuresim contains the code used to generate future hydrological scenarios, as well as the future sediment (disc)connecitivity trajectories in D-CASCADE;
 - the script script_DCASCADEBega_figures cointains all the code used to plot the figures shown in the paper;
 - the function DCASCADEmodel_Bega is the main D-CASCADE function. It contains all the main step constituiting the D-CASCADE model described in the paper, as well as the model add-ons. This version of the model is specifically designed for the Bega river network case study, and includes spcifications of the model temporal steps and other simulations parameters described in the paper;
-- the function DCASCADEmodel_Bega_future is an alternative version of the D-CASCADE model specifically tailored to simulate future sediment (dis)connectivity trajectories in the Bega river network To do so, it requires the outputs of a previous D-CASCADE historic simulation as a baseline.
-
+- the function DCASCADEmodel_Bega_future is an alternative version of the D-CASCADE model specifically tailored to simulate future sediment (dis)connectivity trajectories in the Bega river network To do so, it requires the outputs of a previous D-CASCADE historic simulation as a baseline;
+- the folder D_CASCADE_functions contain all supporting functions and plot functions used in the code. Description of the functions purpose and functioning are provided as comments to the code.
