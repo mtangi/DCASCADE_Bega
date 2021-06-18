@@ -2,7 +2,7 @@
 The repository contains the code, input and output data used in the paper M. Tangi, S. Bizzi, K. Fryirs and A. Castelletti, "A dynamic, network scale sediment (dis)connectivity model to reconstruct historical sediment transfer and river reach sediment budgets"
 
 ---
-The main folder contains the most important scripts and function used in the paper, as well as two workspaces containing the input data used and the main outputs:
+The main folder contains the most important scripts and function used in the paper, as well a workspaces containing the input data used in the paper:
 - The workspace DCASCADE_Bega_input contains all the main input necessary to run D-CASCADE and reproduce the results shown in the paper;
 - the workspace DCASCADE_Bega_results contains the main outputs of the D-CASCADE model, used to produce the figures and conclusions described in the paper;
 - the script script_DCASCADEBega_main contains all the operations to simulate historic sediment (dis)connectivity trajectories on the Bega river network for the different hydrological scenarios;
