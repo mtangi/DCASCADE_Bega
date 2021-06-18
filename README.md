@@ -26,11 +26,10 @@ The workspace DCASCADE_Bega_input contains:
 - Width_change is a 3xn matrix which contains the change in channel width in each reach in each of the 3 temporal phases where width change is expected, compared to the channel width reported in ReachData. Change can be both user-modified as in Phase 2 and driver by the channel expansion-add on as in Phase 1 and 3.
 
 ---
-The workspace DCASCADE_Bega_results contains, together with the input data:
-- data_plot and extended_outputs, which contains all the outputs of the historic simulation of the D-CASCADE model for the MixQ scenario, used as a baseline for the future simulations;
+The folder DCASCADE_outputs contains several workspaces with all the main outputs for the Bega case study:
+- data_plot_MixQ, which contains data_plot and extended_outputs, with all the outputs of the historic simulation of the D-CASCADE model for the MixQ scenario, used as a baseline for the future simulations;
 - data_plot_multiple contains all the major outputs of the historic D-CASCADE simulation for all 4 discharge scenarios. Each output is composed by a txn matrix, reporting the value of the output parameter for each reach n in each timestep t
 - data_plot_multiple_compacted is a matrix structured identical to data_plot_multiple, only the outputs of the reaches included in reach_compact_group are compacted to better visualize the data, either by adding the value in each reach or averaging it.
 - data_plot_scenarios and data_plot_scenarios_nores contains the results of the future hydrological scenarios, for the present-day vegetation and the no-restoration scenarios respectively;
 - data_plot_scenarios_compacted and data_plot_scenarios_compacted_nores are structured identical to data_plot_scenarios, only the outputs of the reaches included in reach_compact_group are compacted to better visualize the data, either by adding the value in each reach or averaging it.
-- SimVal contains the values of the validation parameters for the historical scenarios, together with the present-day and the pre-ES values;
-- SimVal_future and SimVal_future_nores contains the values of the validation parameters for all the future scenarios, for the present-day vegetation and the no-restoration scenarios respectively.
+- SimVal contains all the validation matrixes: SimVal contains the values of the validation parameters for the historical scenarios, together with the present-day and the pre-ES values, SimVal SimVal_future and SimVal_future_nores contain the values of the validation parameters for all the future scenarios, for the present-day vegetation and the no-restoration scenarios respectively.
