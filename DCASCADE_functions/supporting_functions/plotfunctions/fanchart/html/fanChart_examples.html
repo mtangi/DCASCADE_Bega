@@ -1,0 +1,134 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Fanchart visualization examples</title><meta name="generator" content="MATLAB 8.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-09-16"><meta name="DC.source" content="fanChart_examples.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Fanchart visualization examples</h1><!--introduction--><p>These examples demonstrate charting with the fanChart visualization function</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Data</a></li><li><a href="#2">Standard line plot</a></li><li><a href="#3">Fan chart</a></li><li><a href="#4">Add legend to fan chart</a></li><li><a href="#5">Mean, fewer percentiles &amp; different colormap</a></li></ul></div><h2>Data<a name="1"></a></h2><p>Generate a dataset of simulated time series</p><pre class="codeinput">rng <span class="string">default</span>
+N = 100; M = 100;
+ret = rand(N,1)*.1;
+data = cumsum(randn(N,M)*.3 + repmat(ret,1,M));
+</pre><h2>Standard line plot<a name="2"></a></h2><p>Visualize data with a standard line plot for comparison</p><pre class="codeinput">clf
+plot(data)
+</pre><img vspace="5" hspace="5" src="fanChart_examples_01.png" alt=""> <h2>Fan chart<a name="3"></a></h2><p>Generate a default fanChart with 10% spaced bands around median simulated value</p><pre class="codeinput">figure
+fanChart(1:size(data,1), data);
+</pre><img vspace="5" hspace="5" src="fanChart_examples_02.png" alt=""> <h2>Add legend to fan chart<a name="4"></a></h2><pre class="codeinput">clf
+[lineh, bandsh] = fanChart(1:size(data,1), data);
+txt = strcat({<span class="string">'Pct'</span>}, cellstr(int2str((10:10:90)')));
+<span class="comment">%legend([bandsh;lineh], [txt;{'Median'}])</span>
+clickableLegend([lineh;bandsh], [{<span class="string">'Median'</span>};txt])
+</pre><img vspace="5" hspace="5" src="fanChart_examples_03.png" alt=""> <h2>Mean, fewer percentiles &amp; different colormap<a name="5"></a></h2><pre class="codeinput">clf;
+[lineh, bandsh] = fanChart(1:size(data,1), data, <span class="string">'mean'</span>, 10:10:90, <span class="keyword">...</span>
+    <span class="string">'alpha'</span>, .2, <span class="string">'colormap'</span>, {<span class="string">'shadesOfColor'</span>, [0 0 .8]});
+txt = strcat({<span class="string">'Pct'</span>}, cellstr(int2str((20:20:80)')));
+<span class="comment">%legend([bandsh;lineh], [txt;{'Median'}])</span>
+clickableLegend([lineh;bandsh], [{<span class="string">'Mean'</span>};txt])
+</pre><img vspace="5" hspace="5" src="fanChart_examples_04.png" alt=""> <p class="footer">Copyright 2014 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Fanchart visualization examples
+% These examples demonstrate charting with the fanChart visualization
+% function
+
+% Copyright 2014 The MathWorks, Inc.
+
+%% Data
+% Generate a dataset of simulated time series
+
+rng default
+N = 100; M = 100;
+ret = rand(N,1)*.1;
+data = cumsum(randn(N,M)*.3 + repmat(ret,1,M));
+
+%% Standard line plot
+% Visualize data with a standard line plot for comparison
+
+clf
+plot(data)
+
+%% Fan chart
+% Generate a default fanChart with 10% spaced bands around median simulated
+% value
+
+figure
+fanChart(1:size(data,1), data);
+
+%% Add legend to fan chart
+
+clf
+[lineh, bandsh] = fanChart(1:size(data,1), data);
+txt = strcat({'Pct'}, cellstr(int2str((10:10:90)')));
+%legend([bandsh;lineh], [txt;{'Median'}])
+clickableLegend([lineh;bandsh], [{'Median'};txt])
+
+%% Mean, fewer percentiles & different colormap
+
+clf;
+[lineh, bandsh] = fanChart(1:size(data,1), data, 'mean', 10:10:90, ...
+    'alpha', .2, 'colormap', {'shadesOfColor', [0 0 .8]});
+txt = strcat({'Pct'}, cellstr(int2str((20:20:80)')));
+%legend([bandsh;lineh], [txt;{'Median'}])
+clickableLegend([lineh;bandsh], [{'Mean'};txt])
+##### SOURCE END #####
+--></body></html>
