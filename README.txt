@@ -1,6 +1,8 @@
 DCASCADE_Bega
 
-The repository contains the code, input and output data used in the paper M. Tangi, S. Bizzi, K. Fryirs and A. Castelletti, "A dynamic, network scale sediment (dis)connectivity model to reconstruct historical sediment transfer and river reach sediment budgets"
+The repository contains the code, input and output data used in the paper "A dynamic, network scale sediment (dis)connectivity model to reconstruct historical sediment transfer and river reach sediment budgets"
+
+Reference: Tangi, M., Bizzi, S., Fryirs, K., & Castelletti, A. (2022). A dynamic, network scale sediment (dis) connectivity model to reconstruct historical sediment transfer and river reach sediment budgets. Water Resources Research, 58(2), e2021WR030784.  https://doi.org/10.1029/2021WR030784
 
 ----
 
